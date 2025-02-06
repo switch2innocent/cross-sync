@@ -18,14 +18,13 @@ $(document).ready(function () {
 
         if (!email) {
 
-            alert('Email is required');
+            toastr["error"]("Email is required.", "ERROR");
             $('#email').focus();
             return
 
         } else if (check !== 'innogroup.com.ph' && check !== 'induco.com.ph' && check !== 'citrineland.com.ph' && check !== 'innoland.com.ph' && check !== 'innoprime.com.ph') {
 
-            // toastr["error"]("Enter a valid company domain. (ex. your_email@innogroup.com.ph)", "Error");
-            alert("Enter a valid IGC email address. (ex. your_email@innogroup.com.ph)");
+            toastr["error"]("Enter a valid IGC email address. (ex. your_email@innogroup.com.ph).", "ERROR");
             $("#email").focus();
 
         } else {
@@ -37,10 +36,22 @@ $(document).ready(function () {
                 success: function (r) {
                     console.log(r);
                     if (r > 0) {
-                        alert("sent");
-                        window.location.reload();
+                        // alert("sent");
+                        // window.location.reload();
+
+                        Swal.fire({
+                            title: "Success!",
+                            text: "A message has been sent to your IGC email address with instructions to reset your password. Please check your Outlook app.",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            confirmButtonColor: "#007bff",
+                        }).then(function () {
+                            window.location.reload();
+                        });
+
                     } else {
-                        alert("email not found");
+                        toastr["error"]("Email not found.", "ERROR");
                     }
                 }
 
@@ -48,5 +59,23 @@ $(document).ready(function () {
             });
         }
     });
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
 
 });

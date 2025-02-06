@@ -13,24 +13,15 @@ $(document).ready(function () {
       centralWarehouse &&
       inventoryData.name === centralWarehouse.name
     ) {
-      Swal.fire({
-        icon: "warning",
-        title: "Warning!",
-        text: "You have selected the same file for both uploads. Please choose different files.",
-        showConfirmButton: true,
-        confirmButtonColor: "#28a745",
-      });
-      return;
-    } else if (!inventoryData || !centralWarehouse) {
-      Swal.fire({
-        icon: "error",
-        title: "Error!",
-        text: "Please select both files for upload.",
-        showConfirmButton: true,
-        confirmButtonColor: "#28a745",
-      });
 
+      toastr["error"]("You have selected the same file for both uploads. Please choose different files.", "ERROR");
       return;
+
+    } else if (!inventoryData || !centralWarehouse) {
+
+      toastr["error"]("Please select both files for upload.", "ERROR");
+      return;
+
     } else {
 
       // TODO: Create FormData object to hold the files
@@ -61,12 +52,12 @@ $(document).ready(function () {
         complete: function () {
 
           Swal.fire({
-            title: "Saved!",
-            text: "Saved successfully!",
+            title: "Success!",
+            text: "Uploaded successfully!",
             icon: "success",
             allowOutsideClick: false,
             allowEscapeKey: false,
-            confirmButtonColor: "#28a745",
+            confirmButtonColor: "#007bff",
           }).then(function () {
             location.reload();
           });
@@ -77,13 +68,7 @@ $(document).ready(function () {
         },
         error: function (xhr, status, error) {
 
-          Swal.fire({
-            icon: "error",
-            title: "Upload Failed!",
-            text: "There was an error while uploading your file. Please try again.",
-            showConfirmButton: true,
-            confirmButtonColor: "#28a745",
-          });
+          toastr["error"]("There was an error while uploading your file. Please try again.", "ERROR");
 
         },
 
@@ -206,23 +191,11 @@ $(document).ready(function () {
 
     if (firstname == "" || lastname == "" || password == "" || conpassword == "") {
 
-      Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'Please fill all fields!',
-        showConfirmButton: true,
-        confirmButtonColor: '#28a745'
-      });
+      toastr["error"]("Please fill in all fields.", "ERROR");
 
     } else if (password !== conpassword) {
 
-      Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'Password does not match!',
-        showConfirmButton: true,
-        confirmButtonColor: '#28a745'
-      });
+      toastr["error"]("Password does not match. Please try again.", "ERROR");
 
     } else {
 
@@ -238,38 +211,50 @@ $(document).ready(function () {
         success: function (r) {
 
           if (r > 0) {
+
             Swal.fire({
               title: "Profile Updated!",
               text: "Your profile has been updated successfully. You will be logged out to save changes.",
               icon: "success",
-              showConfirmButton: true,
-              confirmButtonColor: "#28a745",
-              allowOutsideClick: false
+              allowOutsideClick: false,
+              allowEscapeKey: false,
+              confirmButtonColor: "#007bff",
             }).then(function () {
               window.location.href = 'controls/logout_user.ctrl.php';
             });
+
           } else {
-            Swal.fire({
-              icon: 'error',
-              title: 'Error!',
-              text: 'Failed to update profile!',
-              showConfirmButton: true,
-              confirmButtonColor: '#28a745'
-            });
+
+            toastr["error"]("Failed to update profile!", "ERROR");
+
           }
         },
         error: function () {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error!',
-            text: 'An error occurred while updating profile!',
-            showConfirmButton: true,
-            confirmButtonColor: '#28a745'
-          });
+
+          toastr["error"]("An error occurred while updating profile!", "ERROR");
+
         }
       });
     }
 
   });
+
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "3000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
 
 }); // ! End document ready function

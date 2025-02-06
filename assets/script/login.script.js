@@ -12,13 +12,13 @@ $(document).ready(function () {
         // Check if the username && password is empty
         if (uname === "") {
 
-            toastr["info"]("Username is required.", "Info");
+            toastr["error"]("Username is required.", "ERROR");
             $('#txtUsername').focus();
             return;
 
         } else if (pass === "") {
 
-            toastr["info"]("Password is required.", "Info");
+            toastr["error"]("Password is required.", "ERROR");
             $('#txtPassword').focus();
             return;
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
                     } else {
 
-                        toastr["error"]("Incorrect username & password.", "Error");
+                        toastr["error"]("Incorrect username & password.", "ERROR");
 
                     }
                 }

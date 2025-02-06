@@ -35,7 +35,7 @@ if ($get) {
                             <p style="color: #555; font-size: 16px; line-height: 1.6;">
                                 We received your request to change your password. To reset your password, please click the button below:
                             </p>
-                            <a href="http://www.innogroup.com.ph/cross-sync/recover_pass.view.php?id=' . urlencode($id) . '" 
+                            <a href="https://innogroup.com.ph/cross-sync/recover_pass.view.php?id=' . $id . '" 
                                style="display: inline-block; background-color:rgba(0, 4, 255, 0.81); color: black; padding: 2px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 5px; margin-top: 20px; text-align: center; border: 1px solid black">
                                 Click Me!
                             </a>

@@ -29,6 +29,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <link rel="stylesheet" href="assets/plugins/datatablecss/dataTables.dataTables.css">
   <link rel="stylesheet" href="assets/plugins/datatablecss/buttons.dataTables.css">
   <link rel="stylesheet" href="assets/css/date.style.css">
+  <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
 
   <style>
     .content {
@@ -227,7 +228,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
               <h6 class="font-weight-bold mt-3">Central Warehouse <i class="text-danger">*</i></h6>
               <div class="form-group">
                 <div class="custom-file">
-                  <input type="file" class="form-control custom-file-input" name="upload-centralWarehouse" id="upload-centralWarehouse">
+                  <input type="file" class="form-control custom-file-input" name="upload-centralWarehouse" id="upload-centralWarehouse" accept=".csv">
                   <label for="upload-centralWarehouse" class="custom-file-label">Choose file</label>
                 </div>
               </div>
@@ -236,7 +237,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
               <h6 class="font-weight-bold">Inventory Data <i class="text-danger">*</i></h6>
               <div class="form-group">
                 <div class="custom-file">
-                  <input type="file" class="form-control form-control-sm custom-file-input" name="upload-inventoryData" id="upload-inventoryData">
+                  <input type="file" class="form-control form-control-sm custom-file-input" name="upload-inventoryData" id="upload-inventoryData" accept=".csv">
                   <label for="upload-inventoryData" class="custom-file-label">Choose File</label>
                 </div>
               </div>
@@ -357,6 +358,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <script src="assets/plugins/datatablejs/vfs_fonts.js"></script>
   <script src="assets/plugins/datatablejs/buttons.html5.min.js"></script>
   <script src="assets/plugins/datatablejs/buttons.print.min.js"></script>
+  <script src="assets/plugins/toastr/toastr.min.js"></script>
   <script src="assets/script/upload.script.js"></script>
 
 </body>

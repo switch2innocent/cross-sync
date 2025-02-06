@@ -8,6 +8,7 @@
 
     <!-- Bootstrap Links -->
     <link rel="stylesheet" href="assets/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 
 </head>
@@ -46,6 +47,8 @@
     <script src="assets/plugins/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/script/forgot_pass.script.js"></script>
+    <script src="assets/plugins/toastr/toastr.min.js"></script>
+    <script src="assets/plugins/sweetalert2@11.js"></script>
 
 </body>
 

@@ -8,6 +8,7 @@
 
     <!-- Bootstrap Links -->
     <link rel="stylesheet" href="assets/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 </head>
 
@@ -22,7 +23,7 @@
                     <h2 class="mt-4">Reset Password</h2>
                     <p>Please enter your new password below.</p>
                 </div>
-                <form action="">
+                <form>
                     <div class="form-group position-relative mt-4">
                         <input type="password" class="form-control pl-5" placeholder="New Password" id="password">
                         <i class="fas fa-lock position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%);"></i>
@@ -49,6 +50,8 @@
     <script src="assets/plugins/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/script/recover_pass.script.js"></script>
+    <script src="assets/plugins/toastr/toastr.min.js"></script>
+    <script src="assets/plugins/sweetalert2@11.js"></script>
 
 </body>
 
